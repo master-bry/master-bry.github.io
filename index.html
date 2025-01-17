@@ -26,6 +26,8 @@
             bottom: 0;
             width: 100%;
             background: rgba(5, 199, 157, 0.9);
+            padding: 20px 0;
+            text-align: center;
         }
         .btn-outline-primary, .btn-outline-info, .btn-outline-dark {
             margin: 5px;
@@ -144,6 +146,26 @@
             color: #28a745;
         }
 
+        /* Bottom Bar Styles */
+        .bottom-bar {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .bottom-bar a {
+            color: #fff;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .bottom-bar a:hover {
+            color: #007bff; /* Change to your preferred hover color */
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             h1 img {
@@ -159,6 +181,10 @@
             .review-form {
                 padding: 15px;
             }
+            .bottom-bar a {
+                font-size: 20px;
+                margin: 0 10px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -171,6 +197,10 @@
             }
             .rating-stars i {
                 font-size: 20px;
+            }
+            .bottom-bar a {
+                font-size: 18px;
+                margin: 0 8px;
             }
         }
     </style>
@@ -305,8 +335,27 @@
         </div>
     </main>
 
+    <!-- Footer with Signature and Bottom Bar -->
     <footer class="bg-primary text-white text-center py-3">
         <p>&copy; 2024 Master</p>
+        <!-- Bottom Bar with Social Media Icons -->
+        <div class="bottom-bar">
+            <a href="https://x.com/master_5326" target="_blank" aria-label="X" title="X">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com/in/brythemaster" target="_blank" aria-label="LinkedIn" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://instagram.com/trendzhub5326" target="_blank" aria-label="Instagram" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://wa.me/+255659864096" target="_blank" aria-label="WhatsApp" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://github.com/master-bry" target="_blank" aria-label="GitHub" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
