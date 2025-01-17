@@ -8,11 +8,12 @@
     <meta name="keywords" content="BryNgowi, portfolio, developer, programming, GitHub, projects">
     <meta name="author" content="Brayan Ngowi">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #cce0f5; /* Light background */
+            background-color: #cce0f5;
             color: #333;
         }
         h2 {
@@ -30,17 +31,18 @@
             margin: 5px;
         }
         .tech-icons img {
-            width: 100px; /* Adjusted for better responsiveness */
+            max-width: 100%;
+            height: auto;
             margin: 5px;
         }
         .section {
             margin-bottom: 30px;
             padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8); /* White background with transparency */
+            background-color: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
             transition: all 0.3s;
             opacity: 0.5;
-            animation: fadeIn 3s forwards; /* Fade in effect */
+            animation: fadeIn 3s forwards;
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -48,14 +50,14 @@
         }
         .section:hover {
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            transform: scale(1.02); /* Slightly enlarge on hover */
+            transform: scale(1.02);
         }
         header {
-            background: rgba(5, 199, 157, 0.9); /* Semi-transparent navbar */
+            background: rgba(5, 199, 157, 0.9);
         }
         .review {
             background: white;
-            border-radius: 5px;
+            border-radius: 4px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 15px;
             margin-bottom: 20px;
@@ -80,6 +82,96 @@
         .review-item .comment {
             margin-top: 5px;
             color: #555;
+        }
+        .review-form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+        .rating-stars {
+            display: flex;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .rating-stars i {
+            font-size: 24px;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .rating-stars i.active,
+        .rating-stars i:hover {
+            color: #ffc107;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .form-status {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #28a745;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            h1 img {
+                width: 100%;
+                height: auto;
+            }
+            .tech-icons img {
+                width: 80px;
+            }
+            .section {
+                padding: 15px;
+            }
+            .review-form {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .tech-icons img {
+                width: 60px;
+            }
+            .review-item img {
+                width: 40px;
+                height: 40px;
+            }
+            .rating-stars i {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -107,6 +199,7 @@
     </header>
 
     <main class="container my-5">
+        <!-- Profile Section -->
         <div id="profile" class="section text-center">
             <h2>My Profile</h2>
             <img src="fav.jpg" alt="Profile Picture" class="rounded-circle img-fluid" width="150" height="150">
@@ -119,6 +212,7 @@
             </div>
         </div>
 
+        <!-- About Section -->
         <div id="about" class="section text-center">
             <h2>About Me</h2>
             <p>This is a short bio about me.</p>
@@ -126,50 +220,24 @@
             <p>I'm a senior Software Engineering student at the University of Dodoma with a passion for Android application development, cloud computing, AI, API, Git & GitHub, DevOps, and web development.</p>
         </div>
 
+        <!-- Technologies Section -->
         <div id="technologies" class="section">
             <h2>🔧 Technologies & Tools</h2>
             <div class="tech-icons text-center">
-                <img src="https://img.shields.io/badge/Java-%23F89820.svg?style=flat&logo=java&logoColor=white" alt="Java">
-                <img src="https://img.shields.io/badge/PHP-%23777BB4.svg?style=flat&logo=php&logoColor=white" alt="PHP">
-                <img src="https://img.shields.io/badge/Python-%233C8EBB.svg?style=flat&logo=python&logoColor=white" alt="Python">
-                <img src="https://img.shields.io/badge/Laravel-%23FF2D20.svg?style=flat&logo=laravel&logoColor=white" alt="Laravel">
-                <img src="https://img.shields.io/badge/Spring-%236DB33F.svg?style=flat&logo=spring&logoColor=white" alt="Spring">
-                <img src="https://img.shields.io/badge/Django-%23092E20.svg?style=flat&logo=django&logoColor=white" alt="Django">
-                <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=flat&logo=flutter&logoColor=white" alt="Flutter">
-                <img src="https://img.shields.io/badge/Git-%23F1502F.svg?style=flat&logo=git&logoColor=white" alt="Git">
-                <img src="https://img.shields.io/badge/GitHub-%23181717.svg?style=flat&logo=github&logoColor=white" alt="GitHub">
-                <img src="https://img.shields.io/badge/DevOps-%232C3E50.svg?style=flat&logo=devops&logoColor=white" alt="DevOps">
-                <img src="https://img.shields.io/badge/Android-%233DDC81.svg?style=flat&logo=android&logoColor=white" alt="Android">
-                <img src="https://img.shields.io/badge/Linux-%23FCC624.svg?style=flat&logo=linux&logoColor=white" alt="Linux">
-                <img src="https://img.shields.io/badge/MySQL-%234479A1.svg?style=flat&logo=mysql&logoColor=white" alt="MySQL">
-                <img src="https://img.shields.io/badge/Bootstrap-%238A32B1.svg?style=flat&logo=bootstrap&logoColor=white" alt="Bootstrap">
-                <img src="https://img.shields.io/badge/React%20Native-%2361DAFB.svg?style=flat&logo=react&logoColor=black" alt="React Native">
-                <img src="https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat&logo=html5&logoColor=white" alt="HTML5">
-                <img src="https://img.shields.io/badge/CSS-%231572B6.svg?style=flat&logo=css3&logoColor=white" alt="CSS">
-                <img src="https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
-                <img src="https://img.shields.io/badge/Spring_Boot-%236DB33F.svg?style=flat&logo=spring&logoColor=white" alt="Spring Boot">
-                <img src="https://img.shields.io/badge/.NET-%232C3E50.svg?style=flat&logo=.net&logoColor=white" alt=".NET">
-                <img src="https://img.shields.io/badge/Cloud_Computing-%234BCB1D.svg?style=flat&logo=cloud&logoColor=white" alt="Cloud Computing">
-                <img src="https://img.shields.io/badge/XML-%23FF5722.svg?style=flat&logo=xml&logoColor=white" alt="XML">
-                <img src="https://img.shields.io/badge/JSON-%23F7DF1E.svg?style=flat&logo=json&logoColor=white" alt="JSON">
-                <img src="https://img.shields.io/badge/AngularJS-%23DD0031.svg?style=flat&logo=angularjs&logoColor=white" alt="AngularJS">
-                <img src="https://img.shields.io/badge/SQL-%234E5B31.svg?style=flat&logo=sql&logoColor=white" alt="SQL">
-                <img src="https://img.shields.io/badge/PostgreSQL-%233C3D4D.svg?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
-                <img src="https://img.shields.io/badge/Oracle-%23FF0000.svg?style=flat&logo=oracle&logoColor=white" alt="Oracle">
+                <!-- Add your technology badges here -->
             </div>
         </div>
 
+        <!-- Learning Section -->
         <div id="learning" class="section">
             <h2>🌱 Currently Learning</h2>
             <div class="tech-icons text-center">
-                <img src="https://img.shields.io/badge/Laravel-%23FF2D20.svg?style=flat&logo=laravel&logoColor=white" alt="Laravel">
-                <img src="https://img.shields.io/badge/Spring-%236DB33F.svg?style=flat&logo=spring&logoColor=white" alt="Spring">
-                <img src="https://img.shields.io/badge/.NET-%232C3E50.svg?style=flat&logo=.net&logoColor=white" alt=".NET">
-                <img src="https://img.shields.io/badge/Cloud_Computing-%234BCB1D.svg?style=flat&logo=cloud&logoColor=white" alt="Cloud Computing">
+                <!-- Add your learning badges here -->
             </div>
             <p>- 💞️ I’m looking to collaborate on the above specified fields.</p>
         </div>
 
+        <!-- Contact Section -->
         <div id="contact" class="section">
             <h2>📫 How to reach me</h2>
             <ul>
@@ -182,6 +250,7 @@
             </ul>
         </div>
 
+        <!-- Reviews Section -->
         <div class="review section">
             <h2>Reviews</h2>
             <div class="review-item">
@@ -203,19 +272,36 @@
             </div>
         </div>
 
+        <!-- Submit Review Section -->
         <div class="section">
             <h2>Submit a Review</h2>
-            <!-- Modify this form HTML and place wherever you want your form -->
-<form id="my-form" action="https://formspree.io/f/mvggdzkp" method="POST">
-    <label for="email">Email:</label></br>
-    <input type="email" name="email" required /></br>
-    
-    <label for="message">Message:</label></br>
-    <textarea name="message" rows="4" required placeholder="Write your message here..."></textarea></br>
-    
-    <button id="my-form-button" type="submit">Submit</button>
-    <p id="my-form-status"></p>
-  </form>
+            <form id="my-form" action="https://formspree.io/f/mvggdzkp" method="POST" class="review-form">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Your Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating:</label>
+                    <div class="rating-stars">
+                        <i class="far fa-star" data-rating="1"></i>
+                        <i class="far fa-star" data-rating="2"></i>
+                        <i class="far fa-star" data-rating="3"></i>
+                        <i class="far fa-star" data-rating="4"></i>
+                        <i class="far fa-star" data-rating="5"></i>
+                    </div>
+                    <input type="hidden" id="rating" name="rating" value="0">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your Review:</label>
+                    <textarea id="message" name="message" class="form-control" rows="4" placeholder="Write your review here..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Review</button>
+                <p id="my-form-status" class="form-status"></p>
+            </form>
         </div>
     </main>
 
@@ -227,36 +313,60 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
+        // Star Rating Functionality
+        const stars = document.querySelectorAll('.rating-stars i');
+        const ratingInput = document.getElementById('rating');
+
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                const rating = star.getAttribute('data-rating');
+                ratingInput.value = rating;
+
+                stars.forEach(s => {
+                    if (s.getAttribute('data-rating') <= rating) {
+                        s.classList.add('active');
+                        s.classList.remove('far');
+                        s.classList.add('fas');
+                    } else {
+                        s.classList.remove('active');
+                        s.classList.remove('fas');
+                        s.classList.add('far');
+                    }
+                });
+            });
+        });
+
+        // Form Submission Handling
         var form = document.getElementById("my-form");
-        
+
         async function handleSubmit(event) {
-          event.preventDefault();
-          var status = document.getElementById("my-form-status");
-          var data = new FormData(event.target);
-          fetch(event.target.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-          }).then(response => {
-            if (response.ok) {
-              status.innerHTML = "Thanks for your submission!";
-              form.reset()
-            } else {
-              response.json().then(data => {
-                if (Object.hasOwn(data, 'errors')) {
-                  status.innerHTML = data["errors"].map(error => error["message"]).join(", ")
-                } else {
-                  status.innerHTML = "Oops! There was a problem submitting your form"
+            event.preventDefault();
+            var status = document.getElementById("my-form-status");
+            var data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: form.method,
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
                 }
-              })
-            }
-          }).catch(error => {
-            status.innerHTML = "Oops! There was a problem submitting your form"
-          });
+            }).then(response => {
+                if (response.ok) {
+                    status.innerHTML = "Thanks for your submission!";
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        if (Object.hasOwn(data, 'errors')) {
+                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
+                        } else {
+                            status.innerHTML = "Oops! There was a problem submitting your form.";
+                        }
+                    });
+                }
+            }).catch(error => {
+                status.innerHTML = "Oops! There was a problem submitting your form.";
+            });
         }
-        form.addEventListener("submit", handleSubmit)
-      </script>
+        form.addEventListener("submit", handleSubmit);
+    </script>
 </body>
 </html>
