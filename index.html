@@ -3,473 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Welcome to Master-Bry's portfolio. Explore projects, technologies, and contact information.">
-    <meta name="keywords" content="BryNgowi| Ngowi Jr | Brayan Ngowi | Master Bry | Developer Bry | bry ngowi | Brythemaster | programming - GitHub-projects">
+    <meta name="description" content="Professional portfolio of Brayan Ngowi - Software Engineering Student & Developer">
+    <meta name="keywords" content="Master-Bry, Master Bry, Brayan Ngowi, Brayan H. Ngowi, NgowiJr, Software Engineer, Android Developer, Cloud Computing, Full Stack Developer, Tanzania">
     <meta name="author" content="Brayan Ngowi">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <!-- Open Graph / Twitter Cards for Social Sharing -->
+    <meta property="og:title" content="Brayan Ngowi | Software Engineer">
+    <meta property="og:description" content="Senior Software Engineering Student | Android & Cloud Developer">
+    <meta property="og:image" content="https://master-bry.github.io/fav.jpg">
+    
+    <!-- Improved Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Framework -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        /* Background Video Styling */
-        #background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1; /* Ensure it stays in the background */
+        :root {
+            --primary-color: #2A4365;  /* Professional Navy Blue */
+            --accent-color: #38B2AC;   /* Teal Accent */
+            --text-color: #2D3748;
         }
 
         body {
-            font-family: Arial, sans-serif;
-            color: #333;
-            position: relative; /* Ensure content stays above the video */
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #F7FAFC 0%, #EDF2F7 100%);
         }
 
-        /* Add a semi-transparent overlay to improve readability */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            /*background: rgba(255, 255, 255, 0.7); /* Adjust opacity as needed */
-            z-index: -1; /* Place it above the video but below the content */
-        }
-
-        /* Rest of your existing styles */
-        h2 {
-            border-bottom: 2px solid #35424a;
-            padding-bottom: 10px;
-            margin-bottom: 20px;
-        }
-        footer {
+        .section-header {
+            font-weight: 600;
+            color: var(--primary-color);
             position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-header:after {
+            content: '';
+            position: absolute;
             bottom: 0;
-            width: 100%;
-            background: rgba(5, 199, 157, 0.9);
-            padding: 20px 0;
-            text-align: center;
-        }
-        .btn-outline-primary, .btn-outline-info, .btn-outline-dark {
-            margin: 5px;
-        }
-        .tech-icons img {
-            max-width: 100%;
-            height: auto;
-            margin: 5px;
-        }
-        .section {
-            margin-bottom: 30px;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            transition: all 0.3s;
-            opacity: 0.5;
-            animation: fadeIn 3s forwards;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        .section:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-            transform: scale(1.02);
-        }
-        header {
-            background: rgba(5, 199, 157, 0.9);
-        }
-        .review {
-            background: white;
-            border-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        .review-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        .review-item img {
-            border-radius: 50%;
+            left: 0;
             width: 50px;
-            height: 50px;
-            margin-right: 15px;
+            height: 3px;
+            background: var(--accent-color);
         }
-        .review-item .details {
-            flex-grow: 1;
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border: 4px solid var(--primary-color);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        .review-item .name {
-            font-weight: bold;
+
+        .skill-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: transform 0.2s;
         }
-        .review-item .comment {
-            margin-top: 5px;
-            color: #555;
+
+        .skill-badge:hover {
+            transform: translateY(-2px);
+            background: var(--accent-color);
         }
-        .review-form {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 3px solid var(--primary-color);
         }
-        .form-group {
-            margin-bottom: 20px;
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 20px;
         }
-        .form-group label {
-            font-weight: bold;
-            margin-bottom: 8px;
-            display: block;
+
+        .timeline-item:before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-color);
+            border-radius: 50%;
         }
-        .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-            transition: border-color 0.3s ease;
-        }
-        .form-control:focus {
-            border-color: #007bff;
-            outline: none;
-        }
-        .rating-stars {
-            display: flex;
-            gap: 10px;
-            margin-top: 5px;
-        }
-        .rating-stars i {
-            font-size: 24px;
-            color: #ddd;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-        .rating-stars i.active,
-        .rating-stars i:hover {
-            color: #ffc107;
-        }
-        .btn-primary {
-            background-color: #007bff;
+
+        .project-card {
             border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-        .form-status {
-            margin-top: 15px;
-            font-size: 14px;
-            color: #28a745;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            background: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* Footer Social Media Icons */
-        .footer-social-icons {
-            margin-top: 10px;
+        .project-card:hover {
+            transform: translateY(-5px);
         }
 
-        .footer-social-icons a {
-            color: #fff;
-            font-size: 24px;
-            margin: 0 10px;
-            transition: color 0.3s ease;
+        .contact-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
 
-        /* Responsive Adjustments */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
         @media (max-width: 768px) {
-            h1 img {
-                width: 100%;
-                height: auto;
-            }
-            .tech-icons img {
-                width: 80px;
-            }
-            .section {
-                padding: 15px;
-            }
-            .review-form {
-                padding: 15px;
-            }
-            .footer-social-icons a {
-                font-size: 20px;
-                margin: 0 8px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .tech-icons img {
-                width: 60px;
-            }
-            .review-item img {
-                width: 40px;
-                height: 40px;
-            }
-            .rating-stars i {
-                font-size: 20px;
-            }
-            .footer-social-icons a {
-                font-size: 18px;
-                margin: 0 6px;
+            .profile-image {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Background Video -->
-    <video id="background-video" autoplay loop muted>
-        <source src="master.mp4" type="video/mp4">
-    </video>
 
-    <header class="text-white text-center py-5">
-        <h1>
-            <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=33&pause=1000&color=EBE912&width=999&lines=Hi+there+%F0%9F%91%8B%2C+Welcome+to+my+Page" alt="Typing Effect">
-        </h1>
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <div class="container">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item"><a class="nav-link" href="#profile">Profile</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#technologies">Technologies</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#learning">Currently Learning</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Brayan Ngowi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="container text-center py-5 mt-5">
+        <img src="fav.jpg" alt="Brayan Ngowi" class="profile-image rounded-circle mb-4">
+        <h1 class="display-4 fw-bold mb-3">Brayan Ngowi</h1>
+        <p class="lead text-muted mb-4">Senior Software Engineering Student | Android & Cloud Developer</p>
+        <div class="d-flex justify-content-center gap-3">
+            <a href="https://linkedin.com/in/brythemaster" class="btn btn-primary btn-lg">
+                <i class="fab fa-linkedin me-2"></i>LinkedIn
+            </a>
+            <a href="https://github.com/master-bry" class="btn btn-dark btn-lg">
+                <i class="fab fa-github me-2"></i>GitHub
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container py-5">
+        <!-- About Section -->
+        <section id="about" class="mb-5">
+            <h2 class="section-header">About Me</h2>
+            <div class="row">
+                <div class="col-lg-8">
+                    <p class="lead">
+                        Seniour Software Engineering student at the University of Dodoma with expertise in 
+                        full-stack development and a passion for building scalable mobile and web applications. 
+                        Currently focused on cloud-native development and DevOps practices.
+                    </p>
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Location:</strong> Dodoma, Tanzania</li>
+                                <li class="mb-2"><strong>Email:</strong> bryngowi@gmail.com</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>Languages:</strong> English, Swahili</li>
+                                <li class="mb-2"><strong>Availability:</strong> Open for collaborations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="mb-5">
+            <h2 class="section-header">Technical Expertise</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="h5 mb-3">Mobile Development</h4>
+                    <div class="d-flex flex-wrap">
+                        <span class="skill-badge">Android SDK</span>
+                        <span class="skill-badge">Flutter</span>
+<!--                         <span class="skill-badge">Kotlin</span> -->
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="h5 mb-3">Backend Development</h4>
+                    <div class="d-flex flex-wrap">
+                        <span class="skill-badge">Spring Boot</span>
+                        <span class="skill-badge">Node.js</span>
+<!--                         <span class="skill-badge">Laravel</span> -->
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h4 class="h5 mb-3">DevOps & Cloud</h4>
+                    <div class="d-flex flex-wrap">
+                        <span class="skill-badge">AWS</span>
+                        <span class="skill-badge">Docker</span>
+                        <span class="skill-badge">CI/CD</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="mb-5">
+            <h2 class="section-header">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h4 class="h5">BSc in Software Engineering</h4>
+                    <p class="text-muted">University of Dodoma | 2022 - 2026</p>
+                    <ul class="list-unstyled">
+                        <li>▶ Relevant Coursework: Algorithms, Distributed Systems, Cloud Computing</li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-
-    <!-- Rest of your existing HTML content -->
-    <main class="container my-5">
-        <!-- Profile Section -->
-        <div id="profile" class="section text-center">
-            <h2>My Profile</h2>
-            <img src="fav.jpg"
-                        alt="Brayan Ngowi(Master Bry) - Profile Image - Master Coordinator"
-                        class="rounded-circle img-fluid" width="150" height="150">
-            <p class="mt-3">Hi there! <img src="https://user-images.githubusercontent.com/18350557/176309783-0785949b-9127-417c-8b55-ab5a4333674e.gif" alt="Welcome Gif" class="img-fluid"> I’m Brayan Ngowi.</p>
-            <div>
-                <h4>Connect with me:</h4>
-                <a href="https://x.com/master_5326" class="btn btn-outline-primary">X</a>
-                <a href="https://linkedin.com/in/brythemaster" class="btn btn-outline-info">LinkedIn</a>
-                <a href="https://github.com/master-bry" class="btn btn-outline-dark">GitHub</a>
-            </div>
-        </div>
-
-        <!-- About Section -->
-        <div id="about" class="section text-center">
-            <h2>About Me</h2>
-            <p>This is a short bio about me.</p>
-            <hr>
-            <p>I'm a senior Software Engineering student at the University of Dodoma with a passion for Android application development, cloud computing, AI, API, Git & GitHub, DevOps, and web development.</p>
-        </div>
-
-        <!-- Technologies Section -->
-        <div id="technologies" class="section">
-            <h2>🔧 Technologies & Tools</h2>
-            <div class="tech-icons text-center">
-                <img src="https://img.shields.io/badge/Java-%23F89820.svg?style=flat&logo=java&logoColor=white" alt="Java">
-                <img src="https://img.shields.io/badge/PHP-%23777BB4.svg?style=flat&logo=php&logoColor=white" alt="PHP">
-                <img src="https://img.shields.io/badge/Python-%233C8EBB.svg?style=flat&logo=python&logoColor=white" alt="Python">
-                <img src="https://img.shields.io/badge/Laravel-%23FF2D20.svg?style=flat&logo=laravel&logoColor=white" alt="Laravel">
-                <img src="https://img.shields.io/badge/Spring-%236DB33F.svg?style=flat&logo=spring&logoColor=white" alt="Spring">
-                <img src="https://img.shields.io/badge/Django-%23092E20.svg?style=flat&logo=django&logoColor=white" alt="Django">
-                <!-- <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=flat&logo=flutter&logoColor=white" alt="Flutter"> -->
-                <img src="https://img.shields.io/badge/Git-%23F1502F.svg?style=flat&logo=git&logoColor=white" alt="Git">
-                <img src="https://img.shields.io/badge/GitHub-%23181717.svg?style=flat&logo=github&logoColor=white" alt="GitHub">
-                <img src="https://img.shields.io/badge/DevOps-%232C3E50.svg?style=flat&logo=devops&logoColor=white" alt="DevOps">
-                <img src="https://img.shields.io/badge/Android-%233DDC81.svg?style=flat&logo=android&logoColor=white" alt="Android">
-                <img src="https://img.shields.io/badge/Linux-%23FCC624.svg?style=flat&logo=linux&logoColor=white" alt="Linux">
-                <img src="https://img.shields.io/badge/MySQL-%234479A1.svg?style=flat&logo=mysql&logoColor=white" alt="MySQL">
-                <img src="https://img.shields.io/badge/Bootstrap-%238A32B1.svg?style=flat&logo=bootstrap&logoColor=white" alt="Bootstrap">
-                <!-- <img src="https://img.shields.io/badge/React%20Native-%2361DAFB.svg?style=flat&logo=react&logoColor=black" alt="React Native"> -->
-                <img src="https://img.shields.io/badge/HTML5-%23E34F26.svg?style=flat&logo=html5&logoColor=white" alt="HTML5">
-                <img src="https://img.shields.io/badge/CSS-%231572B6.svg?style=flat&logo=css3&logoColor=white" alt="CSS">
-                <img src="https://img.shields.io/badge/JavaScript-%23F7DF1E.svg?style=flat&logo=javascript&logoColor=black" alt="JavaScript">
-                <img src="https://img.shields.io/badge/Spring_Boot-%236DB33F.svg?style=flat&logo=spring&logoColor=white" alt="Spring Boot">
-                <!--<img src="https://img.shields.io/badge/.NET-%232C3E50.svg?style=flat&logo=.net&logoColor=white" alt=".NET"> -->
-                <img src="https://img.shields.io/badge/Cloud_Computing-%234BCB1D.svg?style=flat&logo=cloud&logoColor=white" alt="Cloud Computing">
-                <img src="https://img.shields.io/badge/XML-%23FF5722.svg?style=flat&logo=xml&logoColor=white" alt="XML">
-                <img src="https://img.shields.io/badge/JSON-%23F7DF1E.svg?style=flat&logo=json&logoColor=white" alt="JSON">
-                <!-- <img src="https://img.shields.io/badge/AngularJS-%23DD0031.svg?style=flat&logo=angularjs&logoColor=white" alt="AngularJS"> -->
-                <img src="https://img.shields.io/badge/SQL-%234E5B31.svg?style=flat&logo=sql&logoColor=white" alt="SQL">
-                <img src="https://img.shields.io/badge/PostgreSQL-%233C3D4D.svg?style=flat&logo=postgresql&logoColor=white" alt="PostgreSQL">
-                <!-- <img src="https://img.shields.io/badge/Oracle-%23FF0000.svg?style=flat&logo=oracle&logoColor=white" alt="Oracle"> -->
-            </div>
-        </div>
-
-        <!-- Learning Section -->
-        <div id="learning" class="section">
-            <h2>🌱 Currently Learning</h2>
-            <div class="tech-icons text-center">
-                <img src="https://img.shields.io/badge/Laravel-%23FF2D20.svg?style=flat&logo=laravel&logoColor=white" alt="Laravel">
-                <img src="https://img.shields.io/badge/Spring-%236DB33F.svg?style=flat&logo=spring&logoColor=white" alt="Spring">
-                <!-- <img src="https://img.shields.io/badge/.NET-%232C3E50.svg?style=flat&logo=.net&logoColor=white" alt=".NET"> -->
-                <img src="https://img.shields.io/badge/Cloud_Computing-%234BCB1D.svg?style=flat&logo=cloud&logoColor=white" alt="Cloud Computing">
-            </div>
-            <p>- 💞️ I’m looking to collaborate on the above specified fields.</p>
-        </div>
+        </section>
 
         <!-- Contact Section -->
-        <div id="contact" class="section">
-            <h2>📫 How to reach me</h2>
-            <ul>
-                <li><strong>Email:</strong> bryngowi@gmail.com</li>
-                <li><strong>Phone:</strong> +255659864096 or +255746212372</li>
-                <li><strong>Twitter:</strong> <a href="https://twitter.com/Master_5326">@Master_5326</a></li>
-                <li><strong>Instagram:</strong> <a href="https://instagram.com/bryngowi.161">trendzhub5326</a></li>
-                <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/brythemaster">brythemaster</a></li>
-                <li><strong>Stack Overflow:</strong> <a href="https://stackoverflow.com/users/25196009/brythemaster">brythemaster</a></li>
-            </ul>
-        </div>
-
-        <!-- Reviews Section -->
-        <div class="review section">
-            <h2>Reviews</h2>
-            <div class="review-item">
-                <i class="fas fa-star" style="color: gold; margin-right: 10px;"></i>
-                <img src="my1.jpg" alt="Brayan Ngowi(Master Bry) | Milcah- Profile Image - Master Coordinator"
-                        class="rounded-full w-48 h-48 mx-auto shadow-lg animate__animated animate__fadeIn"
-                        data-aos="fade-right">
-                <div class="details">
-                    <div class="name">Milcah</div>
-                    <div class="comment">I really enjoyed this project!</div>
-                </div>
-            </div>
-            <hr>
-            <div class="review-item">
-                <i class="fas fa-star" style="color: gold; margin-right: 10px;"></i>
-                <img src="rich.jpg"  alt="Brayan Ngowi(Master Bry) | Richard- Profile Image - Master Coordinator" style="border-radius: 50%; width: 50px; height: 50px; margin-right: 15px;">
-                <div class="details">
-                    <div class="name">Richard Nhonya</div>
-                    <div class="comment">Big up,, I'm so inspired with your work bro 🤝</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Submit Review Section -->
-        <div class="section">
-            <h2>Submit a Review</h2>
-            <form id="my-form" action="https://formspree.io/f/mvggdzkp" method="POST" class="review-form">
-                <div class="form-group">
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Your Email:</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
-                </div>
-                <div class="form-group">
-                    <label for="rating">Rating:</label>
-                    <div class="rating-stars">
-                        <i class="far fa-star" data-rating="1"></i>
-                        <i class="far fa-star" data-rating="2"></i>
-                        <i class="far fa-star" data-rating="3"></i>
-                        <i class="far fa-star" data-rating="4"></i>
-                        <i class="far fa-star" data-rating="5"></i>
+        <section id="contact" class="mb-5">
+            <div class="contact-card">
+                <h2 class="section-header mb-4">Let's Connect</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-envelope fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5 class="mb-0">Email</h5>
+                                <a href="mailto:bryngowi@gmail.com" class="text-decoration-none">bryngowi@gmail.com</a>
+                            </div>
+                        </div>
                     </div>
-                    <input type="hidden" id="rating" name="rating" value="0">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-4">
+                            <i class="fas fa-phone fa-2x text-primary me-3"></i>
+                            <div>
+                                <h5 class="mb-0">Phone</h5>
+                                <a href="tel:+255659864096" class="text-decoration-none">+255 659 864 096</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Your Review:</label>
-                    <textarea id="message" name="message" class="form-control" rows="4" placeholder="Write your review here..." required></textarea>
+                <div class="text-center mt-4">
+                    <div class="h5 mb-3">Find me on:</div>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="https://x.com/master_5326" class="btn btn-outline-dark">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://github.com/master-bry" class="btn btn-outline-dark">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://stackoverflow.com/users/25196009/brythemaster" class="btn btn-outline-dark">
+                            <i class="fab fa-stack-overflow"></i>
+                        </a>
+                    </div>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit Review</button>
-                <p id="my-form-status" class="form-status"></p>
-            </form>
-        </div>
+            </div>
+        </section>
     </main>
 
-    <!-- Footer with Social Media Icons -->
-    <footer class="bg-primary text-white text-center py-3">
-        <p>&copy; 2024 Master</p>
-        <div class="footer-social-icons">
-            <a href="https://x.com/master_5326" target="_blank" aria-label="X" title="X">
-                <i class="fab fa-twitter"></i>
-            </a>
-            <a href="https://linkedin.com/in/brythemaster" target="_blank" aria-label="LinkedIn" title="LinkedIn">
-                <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://instagram.com/trendzhub5326" target="_blank" aria-label="Instagram" title="Instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://wa.me/+255659864096" target="_blank" aria-label="WhatsApp" title="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://github.com/master-bry" target="_blank" aria-label="GitHub" title="GitHub">
-                <i class="fab fa-github"></i>
-            </a>
+    <!-- Footer -->
+    <footer>
+        <div class="container text-center">
+            <p class="mb-3">&copy; 2025 Brayan Ngowi. All rights reserved.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="/privacy" class="text-white text-decoration-none">Privacy Policy</a>
+                <span>•</span>
+                <a href="/terms" class="text-white text-decoration-none">Terms of Use</a>
+            </div>
         </div>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Star Rating Functionality
-        const stars = document.querySelectorAll('.rating-stars i');
-        const ratingInput = document.getElementById('rating');
-
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                const rating = star.getAttribute('data-rating');
-                ratingInput.value = rating;
-
-                stars.forEach(s => {
-                    if (s.getAttribute('data-rating') <= rating) {
-                        s.classList.add('active');
-                        s.classList.remove('far');
-                        s.classList.add('fas');
-                    } else {
-                        s.classList.remove('active');
-                        s.classList.remove('fas');
-                        s.classList.add('far');
-                    }
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
                 });
             });
         });
 
-        // Form Submission Handling
-        var form = document.getElementById("my-form");
-
-        async function handleSubmit(event) {
-            event.preventDefault();
-            var status = document.getElementById("my-form-status");
-            var data = new FormData(event.target);
-            fetch(event.target.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    status.innerHTML = "Thanks for your submission!";
-                    form.reset();
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                        } else {
-                            status.innerHTML = "Oops! There was a problem submitting your form.";
-                        }
-                    });
-                }
-            }).catch(error => {
-                status.innerHTML = "Oops! There was a problem submitting your form.";
-            });
-        }
-        form.addEventListener("submit", handleSubmit);
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('.navbar').classList.add('navbar-scrolled');
+            } else {
+                document.querySelector('.navbar').classList.remove('navbar-scrolled');
+            }
+        });
     </script>
 </body>
 </html>
