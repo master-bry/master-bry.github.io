@@ -658,27 +658,51 @@
                     }
                 });
                      formStatus.style.color = "#38B2AC";
-                if (response.ok) {);
-                    formStatus.textContent = "Thanks for your message! I'll get back to you soon.";                    
+                if (response.ok) {
+                    formStatus.textContent = "Thanks for your message! I'll get back to you soon.";
+                    formStatus.style.color = "#38B2AC";
+                    form.reset();
+                    setTimeout(() => {
+                        formStatus.textContent = "";
+                    }, 5000);
+                } else {
+                    formStatus.textContent = "Oops! There was a problem submitting your form. Please try again.";
+                    formStatus.style.color = "#E53E3E";
+                }
+            } catch (error) {
+                formStatus.textContent = "Oops! There was a problem submitting your form. Please try again.";
+                formStatus.style.color = "#E53E3E";
+            }
+        }
+
+        form.addEventListener("submit", handleSubmit);
+
+        // Intersection Observer for animated sections
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                }
             });
-        }, { threshold: 0.1 }); => {
-             star.classList.add('far');
-        document.querySelectorAll('.animated-section').forEach(section => {                        star.classList.remove('fas', 'active');
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animated-section').forEach(section => {
             observer.observe(section);
         });
 
-        // Typing effect for headline  // Clear message after 5 seconds
-        const headline = "Hi there 👋, I'm Brayan Ngowi"; => {
-        const headlineEl = document.getElementById('typed-headline');tContent = "";
+        // Typing effect for headline
+        const headline = "Hi there 👋, I'm Brayan Ngowi";
+        const headlineEl = document.getElementById('typed-headline');
+        headlineEl.textContent = "";
         let i = 0;
-        function typeHeadline() {se {
-            if (i < headline.length) {mission failed');
-                headlineEl.innerHTML += headline.charAt(i);   }
-                i++;   } catch (error) {
-                setTimeout(typeHeadline, 60);tus.textContent = "Oops! There was a problem submitting your form. Please try again.";
-            }   formStatus.style.color = "#E53E3E";
-        }     }
-        typeHeadline(); }
+        function typeHeadline() {
+            if (i < headline.length) {
+                headlineEl.innerHTML += headline.charAt(i);
+                i++;
+                setTimeout(typeHeadline, 60);
+            }
+        }
+        typeHeadline();
     </script>
 </body>
 </html>
