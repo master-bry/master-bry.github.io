@@ -680,37 +680,5 @@
         }     }
         typeHeadline(); }
     </script>
-
-
-
-</html></body>        form.addEventListener('submit', handleSubmit);
-
-        // Intersection Observer for animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.animated-section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Typing effect for headline
-        const headline = "Hi there 👋, I'm Brayan Ngowi";
-        const headlineEl = document.getElementById('typed-headline');
-        let i = 0;
-        function typeHeadline() {
-            if (i < headline.length) {
-                headlineEl.innerHTML += headline.charAt(i);
-                i++;
-                setTimeout(typeHeadline, 60);
-            }
-        }
-        typeHeadline();
-    </script>
 </body>
 </html>
