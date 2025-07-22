@@ -179,7 +179,7 @@
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #1E3A8A 100%);
+            background: linear-gradient(135deg, #181c25 0%, #2A4365 100%);
             color: white;
             padding: 3rem 0;
             margin-top: 4rem;
@@ -241,6 +241,38 @@
             box-shadow: 0 0 0 0.25rem rgba(56, 178, 172, 0.25);
         }
 
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --primary-color: #1a202c;
+            --accent-color: #38B2AC;
+            --text-color: #f7fafc;
+            --light-bg: rgba(26, 32, 44, 0.92);
+            background: #181c25;
+            color: var(--text-color);
+        }
+        body.dark-mode .card-style,
+        body.dark-mode .form-card,
+        body.dark-mode .review-card {
+            background: var(--light-bg);
+            color: var(--text-color);
+        }
+        body.dark-mode .section-header {
+            color: var(--accent-color);
+        }
+        body.dark-mode .btn-primary-custom {
+            background: linear-gradient(135deg, #38B2AC 0%, #2C7A7B 100%);
+            color: #fff;
+        }
+        body.dark-mode footer {
+            background: linear-gradient(135deg, #181c25 0%, #2A4365 100%);
+        }
+        body.dark-mode .navbar {
+            background: rgba(26, 32, 44, 0.95) !important;
+        }
+        body.dark-mode .tech-badge {
+            background: linear-gradient(135deg, #2C7A7B 0%, #181c25 100%);
+        }
+
         /* Responsive Adjustments */
         @media (max-width: 992px) {
             .profile-image {
@@ -274,6 +306,7 @@
     </style>
 </head>
 <body>
+    <div id="scroll-progress" style="position:fixed;top:0;left:0;height:4px;width:0;background:var(--accent-color);z-index:9999;transition:width 0.2s;"></div>
     <!-- Background Video -->
     <video id="background-video" autoplay loop muted playsinline>
         <source src="master.mp4" type="video/mp4">
@@ -294,6 +327,9 @@
                     <li class="nav-item"><a class="nav-link" href="#learning">Learning</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
+                <button id="darkModeToggle" class="btn btn-outline-light ms-3" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
     </nav>
@@ -301,10 +337,7 @@
     <!-- Profile Section -->
     <header class="container text-center py-5 mt-5">
         <div class="card-style" id="profile" style="--order: 1;">
-            <h1 class="display-4 fw-bold mb-4">
-                <img src="https://readme-typing-svg.demolab.com?font=Poppins&weight=600&size=36&pause=1000&color=2A4365&width=800&lines=Hi+there+%F0%9F%91%8B%2C+I'm+Brayan+Ngowi" 
-                     alt="Brayan Ngowi" class="img-fluid">
-            </h1>
+            <h1 class="display-4 fw-bold mb-4" id="typed-headline"></h1>
             <img src="fav.jpg" alt="Brayan Ngowi Profile Picture" class="profile-image rounded-circle mb-4">
             <p class="lead mb-4">Senior Software Engineering Student | Mobile App , Web & Cloud Developer</p>
             <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
@@ -316,6 +349,9 @@
                 </a>
                 <a href="https://github.com/master-bry" class="btn btn-primary-custom btn-custom">
                     <i class="fab fa-github me-2"></i> GitHub
+                </a>
+                <a href="resume.pdf" class="btn btn-success btn-custom" download>
+                    <i class="fas fa-file-download me-2"></i> Download Resume
                 </a>
             </div>
         </div>
@@ -524,19 +560,19 @@
     <footer>
         <div class="container text-center">
             <div class="footer-social-icons mb-4">
-                <a href="https://x.com/master_5326" class="text-white mx-2">
+                <a href="https://x.com/master_5326" class="text-white mx-2" aria-label="Twitter">
                     <i class="fab fa-twitter fa-lg"></i>
                 </a>
-                <a href="https://linkedin.com/in/brythemaster" class="text-white mx-2">
+                <a href="https://linkedin.com/in/brythemaster" class="text-white mx-2" aria-label="LinkedIn">
                     <i class="fab fa-linkedin-in fa-lg"></i>
                 </a>
-                <a href="https://github.com/master-bry" class="text-white mx-2">
+                <a href="https://github.com/master-bry" class="text-white mx-2" aria-label="GitHub">
                     <i class="fab fa-github fa-lg"></i>
                 </a>
-                <a href="https://instagram.com/trendzhub5326" class="text-white mx-2">
+                <a href="https://instagram.com/trendzhub5326" class="text-white mx-2" aria-label="Instagram">
                     <i class="fab fa-instagram fa-lg"></i>
                 </a>
-                <a href="https://wa.me/+255659864096" class="text-white mx-2">
+                <a href="https://wa.me/+255659864096" class="text-white mx-2" aria-label="WhatsApp">
                     <i class="fab fa-whatsapp fa-lg"></i>
                 </a>
             </div>
@@ -576,6 +612,12 @@
                 navbar.style.boxShadow = 'none';
                 navbar.style.padding = '1rem 0';
             }
+
+            // Scroll progress indicator
+            const scrollProgress = document.getElementById('scroll-progress');
+            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercentage = (window.scrollY / scrollTotal) * 100;
+            scrollProgress.style.width = scrollPercentage + '%';
         });
 
         // Rating stars functionality
@@ -615,33 +657,33 @@
                         'Accept': 'application/json'
                     }
                 });
-                
-                if (response.ok) {
-                    formStatus.textContent = "Thanks for your message! I'll get back to you soon.";
-                    formStatus.style.color = "#38B2AC";
-                    form.reset();
-                    
-                    // Reset stars
-                    stars.forEach(star => {
-                        star.classList.add('far');
-                        star.classList.remove('fas', 'active');
-                    });
-                    ratingInput.value = "0";
-                    
-                    // Clear message after 5 seconds
-                    setTimeout(() => {
-                        formStatus.textContent = "";
-                    }, 5000);
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                formStatus.textContent = "Oops! There was a problem submitting your form. Please try again.";
-                formStatus.style.color = "#E53E3E";
-            }
-        }
+                     formStatus.style.color = "#38B2AC";
+                if (response.ok) {);
+                    formStatus.textContent = "Thanks for your message! I'll get back to you soon.";                    
+            });
+        }, { threshold: 0.1 }); => {
+             star.classList.add('far');
+        document.querySelectorAll('.animated-section').forEach(section => {                        star.classList.remove('fas', 'active');
+            observer.observe(section);
+        });
 
-        form.addEventListener('submit', handleSubmit);
+        // Typing effect for headline  // Clear message after 5 seconds
+        const headline = "Hi there 👋, I'm Brayan Ngowi"; => {
+        const headlineEl = document.getElementById('typed-headline');tContent = "";
+        let i = 0;
+        function typeHeadline() {se {
+            if (i < headline.length) {mission failed');
+                headlineEl.innerHTML += headline.charAt(i);   }
+                i++;   } catch (error) {
+                setTimeout(typeHeadline, 60);tus.textContent = "Oops! There was a problem submitting your form. Please try again.";
+            }   formStatus.style.color = "#E53E3E";
+        }     }
+        typeHeadline(); }
+    </script>
+
+
+
+</html></body>        form.addEventListener('submit', handleSubmit);
 
         // Intersection Observer for animations
         const observer = new IntersectionObserver((entries) => {
@@ -656,6 +698,19 @@
         document.querySelectorAll('.animated-section').forEach(section => {
             observer.observe(section);
         });
+
+        // Typing effect for headline
+        const headline = "Hi there 👋, I'm Brayan Ngowi";
+        const headlineEl = document.getElementById('typed-headline');
+        let i = 0;
+        function typeHeadline() {
+            if (i < headline.length) {
+                headlineEl.innerHTML += headline.charAt(i);
+                i++;
+                setTimeout(typeHeadline, 60);
+            }
+        }
+        typeHeadline();
     </script>
 </body>
 </html>
