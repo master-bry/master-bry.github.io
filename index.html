@@ -3,573 +3,609 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio of Brayan Ngowi - Software Engineering Student & Developer specializing in Android, Cloud, and Full Stack Development">
-    <meta name="keywords" content="Master Bry, Master-Bry, D3F4ULT, Brayan Ngowi, NgowiJR, Software Engineer, Android Developer, Cloud Computing, Full Stack Developer, Tanzania, University of Dodoma">
-    <meta name="author" content="Brayan Ngowi">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#2A4365">
+    <title>Brayan Ngowi | Software Engineer Portfolio</title>
     
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://master-bry.github.io/">
-    
-    <!-- Open Graph / Twitter Cards -->
-    <meta property="og:title" content="Brayan Ngowi | Software Engineer & Developer Portfolio">
-    <meta property="og:description" content="Senior Software Engineering Student | Android & Cloud Developer | Full Stack Developer based in Tanzania">
-    <meta property="og:image" content="https://master-bry.github.io/fav.jpg">
-    <meta property="og:url" content="https://master-bry.github.io/">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Brayan Ngowi Portfolio">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Brayan Ngowi | Software Engineer">
-    <meta name="twitter:description" content="Senior Software Engineering Student | Android & Cloud Developer">
-    <meta name="twitter:image" content="https://master-bry.github.io/fav.jpg">
-    <meta name="twitter:creator" content="@master_5326">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    
-    <!-- Structured Data / Schema.org -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Brayan Ngowi",
-      "url": "https://master-bry.github.io/",
-      "sameAs": [
-        "https://github.com/master-bry",
-        "https://linkedin.com/in/brythemaster",
-        "https://x.com/master_5326"
-      ],
-      "jobTitle": "Software Engineering Student",
-      "worksFor": {
-        "@type": "EducationalOrganization",
-        "name": "University of Dodoma"
-      },
-      "alumniOf": {
-        "@type": "EducationalOrganization",
-        "name": "University of Dodoma"
-      }
-    }
-    </script>
-    
-    <!-- Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         :root {
-            --primary-color: #2A4365;
-            --accent-color: #38B2AC;
-            --text-color: #2D3748;
-            --light-bg: rgba(255, 255, 255, 0.92);
+            --primary: #0a0e27;
+            --secondary: #151932;
+            --accent: #1a1f3a;
+            --neon-cyan: #00fff9;
+            --neon-blue: #00d4ff;
+            --neon-purple: #b537f2;
+            --text: #e8f0f2;
+            --text-dim: #8892b0;
         }
 
-        /* Background Video */
-        #background-video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -2;
-            opacity: 0.9;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            color: var(--text-color);
-            position: relative;
-            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Semi-transparent overlay */
-        body::before {
-            content: '';
+        /* Animated Background */
+        .bg-gradient {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 100%);
+            background: radial-gradient(ellipse at top, #1a1f3a 0%, #0a0e27 50%, #000 100%);
             z-index: -1;
         }
 
-        /* Professional Enhancements */
-        .section-header {
-            font-weight: 600;
-            color: var(--primary-color);
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .section-header:after {
+        .bg-gradient::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 3px;
-            background: var(--accent-color);
-            border-radius: 3px;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, rgba(0, 255, 249, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0, 255, 249, 0.03) 1px, transparent 1px);
+            background-size: 100px 100px;
+            animation: grid-animation 20s linear infinite;
         }
 
-        /* Profile Image */
+        @keyframes grid-animation {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100px); }
+        }
+
+        /* Neon Glow Effect */
+        .neon-text {
+            color: var(--neon-cyan);
+            text-shadow: 
+                0 0 10px rgba(0, 255, 249, 0.8),
+                0 0 20px rgba(0, 255, 249, 0.5);
+        }
+
+        .neon-border {
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 
+                0 0 5px var(--neon-cyan),
+                0 0 10px var(--neon-cyan),
+                inset 0 0 5px var(--neon-cyan),
+                inset 0 0 10px var(--neon-cyan);
+        }
+
+        /* Navigation */
+        .navbar {
+            background: rgba(10, 14, 39, 0.95) !important;
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 249, 0.2);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--neon-cyan) !important;
+            text-shadow: 0 0 15px rgba(0, 255, 249, 0.6);
+        }
+
+        .nav-link {
+            color: var(--text-dim) !important;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--neon-cyan) !important;
+            text-shadow: 0 0 15px rgba(0, 255, 249, 0.5);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 80%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 50px;
+        }
+
         .profile-image {
             width: 200px;
             height: 200px;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            border-radius: 50%;
+            border: 4px solid var(--neon-cyan);
+            box-shadow: 
+                0 0 20px var(--neon-cyan),
+                0 0 40px var(--neon-cyan),
+                0 0 60px var(--neon-cyan);
+            margin: 0 auto 2rem;
+            display: block;
+            object-fit: cover;
+            animation: pulse-neon 2s infinite;
         }
 
-        .profile-image:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        @keyframes pulse-neon {
+            0%, 100% {
+                box-shadow: 
+                    0 0 20px var(--neon-cyan),
+                    0 0 40px var(--neon-cyan),
+                    0 0 60px var(--neon-cyan);
+            }
+            50% {
+                box-shadow: 
+                    0 0 30px var(--neon-cyan),
+                    0 0 60px var(--neon-cyan),
+                    0 0 90px var(--neon-cyan);
+            }
         }
 
-        /* Technology Badges */
-        .tech-badge {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #a7b9ec 100%);
-            color: white;
-            padding: 0.5rem 1.25rem;
-            margin: 0.5rem;
-            border-radius: 25px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            display: inline-block;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--text);
         }
 
-        .tech-badge:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Learning Badges */
-        .learning-badge {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #2C7A7B 100%);
-        }
-
-        /* Cards */
-        .card-style {
-            background: var(--light-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.5);
-        }
-
-        .card-style:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        /* Review Cards */
-        .review-card {
-            background: var(--light-bg);
-            border-radius: 12px;
-            padding: 1.5rem;
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--neon-cyan);
             margin-bottom: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            font-weight: 600;
+            text-shadow: 0 0 15px rgba(0, 255, 249, 0.4);
         }
 
-        .review-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Form Card */
-        .form-card {
-            background: var(--light-bg);
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+        .hero .description {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            max-width: 700px;
+            margin: 0 auto 2rem;
         }
 
         /* Buttons */
-        .btn-custom {
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
-        }
-
         .btn-primary-custom {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #9da9cc 100%);
-            border: none;
-            color: white;
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 
+                0 0 10px var(--neon-cyan),
+                inset 0 0 10px transparent;
         }
 
         .btn-primary-custom:hover {
+            background: var(--neon-cyan);
+            color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            box-shadow: 
+                0 0 20px var(--neon-cyan),
+                0 0 40px var(--neon-cyan),
+                inset 0 0 20px var(--neon-cyan);
+        }
+
+        .btn-outline-custom {
+            border: 2px solid var(--neon-purple);
+            color: var(--neon-purple);
+            background: transparent;
+            padding: 0.9rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--neon-purple);
+        }
+
+        .btn-outline-custom:hover {
+            background: var(--neon-purple);
+            color: var(--primary);
+            box-shadow: 
+                0 0 20px var(--neon-purple),
+                0 0 40px var(--neon-purple);
+        }
+
+        /* Cards */
+        .card-modern {
+            background: rgba(21, 25, 50, 0.6);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 255, 249, 0.2);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .card-modern:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+            box-shadow: 
+                0 0 20px rgba(0, 255, 249, 0.3),
+                0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--neon-cyan);
+            position: relative;
+            display: inline-block;
+            text-shadow: 0 0 20px rgba(0, 255, 249, 0.5);
+        }
+
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--neon-cyan);
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .section-subtitle {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Skills */
+        .skill-badge {
+            background: rgba(21, 25, 50, 0.8);
+            color: var(--neon-cyan);
+            border: 1px solid var(--neon-cyan);
+            padding: 0.7rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px var(--neon-cyan);
+        }
+
+        .skill-badge:hover {
+            background: var(--neon-cyan);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 0 15px var(--neon-cyan),
+                0 0 30px var(--neon-cyan);
+        }
+
+        .learning-badge {
+            border-color: var(--neon-purple);
+            color: var(--neon-purple);
+            box-shadow: 0 0 5px var(--neon-purple);
+        }
+
+        .learning-badge:hover {
+            background: var(--neon-purple);
+            color: var(--primary);
+            box-shadow: 
+                0 0 15px var(--neon-purple),
+                0 0 30px var(--neon-purple);
+        }
+
+        /* Stats */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--neon-cyan);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 20px rgba(0, 255, 249, 0.6);
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        /* Form */
+        .form-control-custom {
+            background: rgba(21, 25, 50, 0.6);
+            border: 1px solid rgba(0, 255, 249, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text);
+        }
+
+        .form-control-custom:focus {
+            background: rgba(21, 25, 50, 0.8);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 255, 249, 0.3);
+            color: var(--text);
+            outline: none;
+        }
+
+        .form-label {
+            color: var(--text);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Rating Stars */
+        .rating-stars i {
+            font-size: 28px;
+            color: rgba(0, 255, 249, 0.3);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 0 5px;
+        }
+
+        .rating-stars i:hover,
+        .rating-stars i.active {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px rgba(0, 255, 249, 0.6);
+        }
+
+        /* Testimonials */
+        .testimonial-card {
+            background: rgba(21, 25, 50, 0.6);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 249, 0.2);
+            transition: all 0.3s ease;
+            height: 100%;
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 255, 249, 0.2);
+        }
+
+        .testimonial-avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-cyan);
+            object-fit: cover;
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        /* Social Links */
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: rgba(21, 25, 50, 0.6);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 50%;
+            color: var(--neon-cyan);
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+            text-decoration: none;
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+
+        .social-link:hover {
+            background: var(--neon-cyan);
+            color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 
+                0 0 20px var(--neon-cyan),
+                0 0 40px var(--neon-cyan);
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(135deg, #181c25 0%, #2A4365 100%);
-            color: white;
-            padding: 3rem 0;
-            margin-top: 4rem;
-            position: relative;
+            background: rgba(21, 25, 50, 0.6);
+            padding: 3rem 0 2rem;
+            margin-top: 5rem;
+            border-top: 1px solid rgba(0, 255, 249, 0.2);
         }
 
-        footer::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 0;
-            width: 100%;
-            height: 20px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M1200 0L0 0 892.25 114.72 1200 0z" fill="%232A4365"></path></svg>');
-            background-size: cover;
+        /* Sections */
+        section {
+            padding: 5rem 0;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animated-section {
-            animation: fadeIn 0.8s ease-out forwards;
-            opacity: 0;
-            animation-delay: calc(var(--order) * 0.1s);
-        }
-
-        /* Rating Stars */
-        .rating-stars {
-            display: flex;
-            gap: 8px;
-            margin-top: 5px;
-        }
-
-        .rating-stars i {
-            font-size: 24px;
-            color: #ddd;
-            cursor: pointer;
-            transition: color 0.2s ease;
-        }
-
-        .rating-stars i.active,
-        .rating-stars i:hover {
-            color: #FFD700;
-        }
-
-        /* Form Elements */
-        .form-control-custom {
-            border-radius: 8px;
-            padding: 0.8rem 1rem;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .form-control-custom:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 0.25rem rgba(56, 178, 172, 0.25);
-        }
-
-        /* Dark Mode Styles */
-        body.dark-mode {
-            --primary-color: #1a202c;
-            --accent-color: #38B2AC;
-            --text-color: #f7fafc;
-            --light-bg: rgba(26, 32, 44, 0.92);
-            background: #181c25;
-            color: var(--text-color);
-        }
-        body.dark-mode .card-style,
-        body.dark-mode .form-card,
-        body.dark-mode .review-card {
-            background: var(--light-bg);
-            color: var(--text-color);
-        }
-        body.dark-mode .section-header {
-            color: var(--accent-color);
-        }
-        body.dark-mode .btn-primary-custom {
-            background: linear-gradient(135deg, #38B2AC 0%, #2C7A7B 100%);
-            color: #fff;
-        }
-        body.dark-mode footer {
-            background: linear-gradient(135deg, #181c25 0%, #2A4365 100%);
-        }
-        body.dark-mode .navbar {
-            background: rgba(26, 32, 44, 0.95) !important;
-        }
-        body.dark-mode .tech-badge {
-            background: linear-gradient(135deg, #2C7A7B 0%, #181c25 100%);
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .profile-image {
-                width: 180px;
-                height: 180px;
-            }
+        /* Skill category headers */
+        .skill-category h3 {
+            color: var(--neon-blue);
+            text-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
         }
 
         @media (max-width: 768px) {
-            .profile-image {
-                width: 160px;
-                height: 160px;
+            .hero h1 {
+                font-size: 2rem;
             }
-            
-            .section-header {
-                font-size: 1.5rem;
-            }
-        }
 
-        @media (max-width: 576px) {
-            .profile-image {
-                width: 140px;
-                height: 140px;
+            .section-header {
+                font-size: 2rem;
             }
-            
-            .tech-badge {
-                padding: 0.4rem 1rem;
-                font-size: 0.8rem;
+
+            .profile-image {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <div id="scroll-progress" style="position:fixed;top:0;left:0;height:4px;width:0;background:var(--accent-color);z-index:9999;transition:width 0.2s;"></div>
-    <!-- Background Video -->
-    <video id="background-video" autoplay loop muted playsinline aria-label="Background video of code animation">
-        <source src="master.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <div class="bg-gradient"></div>
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background: rgba(42, 67, 101, 0.9); backdrop-filter: blur(10px);">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" aria-label="Brayan Ngowi Portfolio">Master Bry Portfolio</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation">
+            <a class="navbar-brand" href="#">Brayan Ngowi</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="#profile">Profile</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#technologies">Skills</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#learning">Learning</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
-                <button id="darkModeToggle" class="btn btn-outline-light ms-3" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
-                </button>
             </div>
         </div>
     </nav>
 
-    <!-- Profile Section -->
-    <header class="container text-center py-5 mt-5">
-        <div class="card-style" id="profile" style="--order: 1;">
-            <h1 class="display-4 fw-bold mb-4" id="typed-headline"></h1>
-            <img src="fav.jpg" alt="Brayan Ngowi Profile Picture - Software Engineering Student" class="profile-image rounded-circle mb-4" width="200" height="200">
-            <p class="lead mb-4">Senior Software Engineering Student | Mobile App, Web & Cloud Developer</p>
-            <div class="d-flex justify-content-center gap-3 mb-4 flex-wrap">
-                <a href="https://x.com/master_5326" class="btn btn-primary-custom btn-custom" aria-label="Follow me on Twitter">
-                    <i class="fab fa-twitter me-2"></i> Twitter
-                </a>
-                <a href="https://linkedin.com/in/brythemaster" class="btn btn-primary-custom btn-custom" aria-label="Connect on LinkedIn">
-                    <i class="fab fa-linkedin-in me-2"></i> LinkedIn
-                </a>
-                <a href="https://github.com/master-bry" class="btn btn-primary-custom btn-custom" aria-label="View my GitHub profile">
-                    <i class="fab fa-github me-2"></i> GitHub
-                </a>
-                <a href="resume.pdf" class="btn btn-primary-custom btn-custom" download aria-label="Download my resume">
-                    <i class="fas fa-file-download me-2"></i> Download Resume
-                </a>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="text-center">
+                <img src="fav.jpg" alt="Brayan Ngowi" class="profile-image">
+                <h1>Hi, I'm <span class="neon-text">Brayan Ngowi</span></h1>
+                <p class="subtitle">Software Engineering Student | Mobile & Cloud Developer</p>
+                <p class="description">
+                    Passionate about building scalable solutions and creating innovative applications.
+                    Currently specializing in Android development, cloud computing, and full-stack technologies.
+                </p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap mb-4">
+                    <a href="#contact" class="btn btn-primary-custom">
+                        <i class="fas fa-envelope me-2"></i>Get In Touch
+                    </a>
+                    <a href="resume.pdf" class="btn btn-outline-custom" download>
+                        <i class="fas fa-download me-2"></i>Download CV
+                    </a>
+                </div>
+                <div class="d-flex gap-2 justify-content-center">
+                    <a href="https://github.com/master-bry" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/brythemaster" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://x.com/master_5326" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/+255659864096" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- Main Content -->
-    <main class="container py-5">
-        <!-- About Section -->
-        <section id="about" class="card-style mb-5 animated-section" style="--order: 2;">
-            <h2 class="section-header">About Me</h2>
-            <p class="lead mb-4">
-                Final-year Software Engineering student at the University of Dodoma with expertise in 
-                Android development, cloud computing, and full-stack development. Passionate about 
-                building scalable solutions and continuously expanding my technical expertise.
-            </p>
-            <div class="row mt-4">
-                <div class="col-md-6 mb-4">
-                    <div class="p-4 rounded" style="background: rgba(56, 178, 172, 0.1);">
-                        <h3 class="fw-bold mb-3"><i class="fas fa-graduation-cap me-2"></i>Education</h3>
-                        <p class="mb-1"><strong>BSc in Software Engineering</strong></p>
-                        <p class="mb-1">University of Dodoma</p>
-                        <p>2022 - Current</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-6 mb-4">
-                    <div class="p-4 rounded" style="background: rgba(56, 178, 172, 0.1);">
-                        <h3 class="fw-bold mb-3"><i class="fas fa-laptop-code me-2"></i>Technical Focus</h3>
-                        <div class="d-flex flex-wrap">
-                            <span class="tech-badge mb-2">Mobile App Development</span>
-                            <span class="tech-badge mb-2">Web Development</span>
-                            <span class="tech-badge mb-2">DevOps</span>
-                            <span class="tech-badge mb-2">API</span>
-                            <span class="tech-badge mb-2">Cloud Computing</span>
-                            <span class="tech-badge mb-2">Version Control</span>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-header">About Me</h2>
+                <p class="section-subtitle">Passionate Developer | Problem Solver | Tech Enthusiast</p>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card-modern">
+                        <p class="lead mb-4">
+                            I'm a final-year Software Engineering student at the University of Dodoma with a strong foundation in mobile and web development. My journey in technology has equipped me with expertise in Android development, cloud computing, and modern full-stack frameworks.
+                        </p>
+                        <p class="mb-4">
+                            I thrive on solving complex problems and transforming ideas into elegant, functional solutions. My approach combines clean code practices with user-centered design principles to create applications that make a real impact.
+                        </p>
+                        <div class="row text-center mt-5">
+                            <div class="col-md-4">
+                                <div class="stat-number">3+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Projects Completed</div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="stat-number">10+</div>
+                                <div class="stat-label">Technologies</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Technologies Section -->
-        <section id="technologies" class="card-style mb-5 animated-section" style="--order: 3;">
-            <h2 class="section-header">Technical Expertise</h2>
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h3 class="fw-bold mb-3"><i class="fas fa-mobile-alt me-2"></i>Mobile</h3>
-                    <div>
-                        <span class="tech-badge">Android | Flutter SDK</span>
-                        <span class="tech-badge">Java</span>
-                        <span class="tech-badge">Flutter</span>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-header">Technical Expertise</h2>
+                <p class="section-subtitle">Technologies I work with</p>
+            </div>
+            <div class="card-modern">
+                <div class="row mb-4">
+                    <div class="col-md-4 mb-4">
+                        <div class="skill-category">
+                            <h3 class="mb-3"><i class="fas fa-mobile-alt me-2"></i>Mobile Development</h3>
+                            <span class="skill-badge">Android</span>
+                            <span class="skill-badge">Flutter</span>
+                            <span class="skill-badge">Java</span>
+                            <span class="skill-badge">Flutter SDK</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="skill-category">
+                            <h3 class="mb-3"><i class="fas fa-server me-2"></i>Backend & APIs</h3>
+                            <span class="skill-badge">Spring Boot</span>
+                            <span class="skill-badge">Node.js</span>
+                            <span class="skill-badge">CodeIgniter</span>
+                            <span class="skill-badge">REST APIs</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="skill-category">
+                            <h3 class="mb-3"><i class="fas fa-cloud me-2"></i>DevOps & Cloud</h3>
+                            <span class="skill-badge">AWS</span>
+                            <span class="skill-badge">Docker</span>
+                            <span class="skill-badge">Git</span>
+                            <span class="skill-badge">GitHub</span>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4 mb-4">
-                    <h3 class="fw-bold mb-3"><i class="fas fa-server me-2"></i>Backend</h3>
-                    <div>
-                        <span class="tech-badge">Spring Boot</span>
-                        <span class="tech-badge">Node.js</span>
-                        <!-- <span class="tech-badge">PHP</span>  -->
-                        <span class="tech-badge">CodeIgniter</span>
-                    </div>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h3 class="fw-bold mb-3"><i class="fas fa-cloud me-2"></i>DevOps & Cloud</h3>
-                    <div>
-                        <span class="tech-badge">Git</span>
-                        <span class="tech-badge">GitHub</span>
-                        <span class="tech-badge">Docker</span>
-                        <span class="tech-badge">AWS</span>
-                    </div>
+                <div class="mt-4 pt-4" style="border-top: 1px solid rgba(0, 255, 249, 0.2);">
+                    <h3 class="mb-3 neon-text"><i class="fas fa-rocket me-2"></i>Currently Learning</h3>
+                    <span class="skill-badge learning-badge">Advanced Cloud Architecture</span>
+                    <span class="skill-badge learning-badge">Microservices</span>
+                    <span class="skill-badge learning-badge">AI Integration</span>
+                    <span class="skill-badge learning-badge">Kubernetes</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Learning Section -->
-        <section id="learning" class="card-style mb-5 animated-section" style="--order: 4;">
-            <h2 class="section-header">Currently Learning</h2>
-            <div class="d-flex flex-wrap mb-4">
-                <span class="tech-badge learning-badge">Advanced Cloud and API</span>
-                <span class="tech-badge learning-badge">Microservices</span>
-                <span class="tech-badge learning-badge">AI Integration</span>
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-header">Client Feedback</h2>
+                <p class="section-subtitle">What others say about my work</p>
             </div>
-            <p class="mb-0">I'm actively seeking collaborations in these emerging technologies.</p>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="animated-section" style="--order: 5;">
             <div class="row g-4">
-                <div class="col-lg-6">
-                    <div class="card-style h-100">
-                        <h2 class="section-header">Contact Information</h2>
-                        <div class="mb-4">
-                            <h3 class="fw-bold mb-3"><i class="fas fa-envelope me-2"></i>Email</h3>
-                            <a href="mailto:bryngowi@gmail.com" class="text-decoration-none">bryngowi@gmail.com</a>
-                        </div>
-                        <div class="mb-4">
-                            <h3 class="fw-bold mb-3"><i class="fas fa-phone me-2"></i>Phone</h3>
-                            <a href="tel:+255659864096" class="text-decoration-none">+255 659 864 096</a>
-                        </div>
-                        <div class="mb-4">
-                            <h3 class="fw-bold mb-3"><i class="fas fa-map-marker-alt me-2"></i>Location</h3>
-                            <p>Dodoma, Tanzania</p>
-                        </div>
-                        <div>
-                            <h3 class="fw-bold mb-3"><i class="fas fa-share-alt me-2"></i>Connect</h3>
-                            <div class="d-flex gap-3">
-                                <a href="https://x.com/master_5326" class="btn btn-outline-primary btn-sm rounded-circle p-2" aria-label="Twitter profile">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://linkedin.com/in/brythemaster" class="btn btn-outline-primary btn-sm rounded-circle p-2" aria-label="LinkedIn profile">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="https://github.com/master-bry" class="btn btn-outline-dark btn-sm rounded-circle p-2" aria-label="GitHub profile">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://wa.me/+255659864096" class="btn btn-outline-success btn-sm rounded-circle p-2" aria-label="WhatsApp contact">
-                                    <i class="fab fa-whatsapp"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="form-card h-100">
-                        <h2 class="section-header">Send Me a Message</h2>
-                        <form id="my-form" action="https://formspree.io/f/mvggdzkp" method="POST">
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Your Name</label>
-                                <input type="text" class="form-control form-control-custom" id="name" name="name" required aria-required="true">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email Address</label>
-                                <input type="email" class="form-control form-control-custom" id="email" name="email" required aria-required="true">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Rating</label>
-                                <div class="rating-stars mb-2" role="radiogroup">
-                                    <i class="far fa-star" data-rating="1" role="radio" aria-label="1 star"></i>
-                                    <i class="far fa-star" data-rating="2" role="radio" aria-label="2 stars"></i>
-                                    <i class="far fa-star" data-rating="3" role="radio" aria-label="3 stars"></i>
-                                    <i class="far fa-star" data-rating="4" role="radio" aria-label="4 stars"></i>
-                                    <i class="far fa-star" data-rating="5" role="radio" aria-label="5 stars"></i>
-                                </div>
-                                <input type="hidden" id="rating" name="rating" value="0">
-                            </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label">Your Message</label>
-                                <textarea class="form-control form-control-custom" id="message" name="message" rows="4" required aria-required="true"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary-custom btn-custom w-100" aria-label="Send message">
-                                <i class="fas fa-paper-plane me-2"></i> Send Message
-                            </button>
-                            <p id="my-form-status" class="text-center mt-3"></p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reviews Section -->
-        <section class="card-style mt-5 animated-section" style="--order: 6;">
-            <h2 class="section-header">Client Feedback</h2>
-            <div class="row">
-                <div class="col-md-6 mb-4">
-                    <div class="review-card">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="my1.jpg" alt="Milcah testimonial" class="rounded-circle me-3" width="60" height="60" loading="lazy">
+                            <img src="my1.jpeg" alt="Milcah" class="testimonial-avatar me-3">
                             <div>
-                                <h3 class="h5 mb-1">Milcah</h3>
-                                <div class="text-warning" aria-label="5 star rating">
+                                <h4 class="mb-1">Milcah</h4>
+                                <div style="color: var(--neon-cyan);">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -581,13 +617,13 @@
                         <p class="mb-0">"I really enjoyed working with Brayan on our project. His attention to detail and problem-solving skills were impressive!"</p>
                     </div>
                 </div>
-                <div class="col-md-6 mb-4">
-                    <div class="review-card">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
                         <div class="d-flex align-items-center mb-3">
-                            <img src="rich.jpg" alt="Richard Nhonya testimonial" class="rounded-circle me-3" width="60" height="60" loading="lazy">
+                            <img src="rich.jpg" alt="Richard Nhonya" class="testimonial-avatar me-3">
                             <div>
-                                <h3 class="h5 mb-1">Richard Nhonya</h3>
-                                <div class="text-warning" aria-label="4.5 star rating">
+                                <h4 class="mb-1">Richard Nhonya</h4>
+                                <div style="color: var(--neon-cyan);">
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
@@ -600,159 +636,90 @@
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="section-header">Get In Touch</h2>
+                <p class="section-subtitle">Let's discuss your next project</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="card-modern h-100">
+                        <h3 class="mb-4 neon-text">Contact Information</h3>
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="social-link me-3"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <small class="text-muted d-block">Email</small>
+                                    <a href="mailto:bryngowi@gmail.com" style="color: var(--text); text-decoration: none;">bryngowi@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="social-link me-3"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <small class="text-muted d-block">Phone</small>
+                                    <a href="tel:+255659864096" style="color: var(--text); text-decoration: none;">+255 659 864 096</a>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <div class="social-link me-3"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <small class="text-muted d-block">Location</small>
+                                    <span>Dodoma, Tanzania</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card-modern">
+                        <form id="contactForm" action="https://formspree.io/f/mvggdzkp" method="POST">
+                            <div class="mb-3">
+                                <label class="form-label">Your Name</label>
+                                <input type="text" name="name" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" name="email" class="form-control form-control-custom" required>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Rating</label>
+                                <div class="rating-stars d-flex">
+                                    <i class="far fa-star" data-rating="1"></i>
+                                    <i class="far fa-star" data-rating="2"></i>
+                                    <i class="far fa-star" data-rating="3"></i>
+                                    <i class="far fa-star" data-rating="4"></i>
+                                    <i class="far fa-star" data-rating="5"></i>
+                                </div>
+                                <input type="hidden" name="rating" id="ratingInput" value="0">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Message</label>
+                                <textarea name="message" class="form-control form-control-custom" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary-custom w-100">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                            <p id="formStatus" class="text-center mt-3"></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <div class="footer-social-icons mb-4">
-                <a href="https://x.com/master_5326" class="text-white mx-2" aria-label="Twitter">
-                    <i class="fab fa-twitter fa-lg"></i>
-                </a>
-                <a href="https://linkedin.com/in/brythemaster" class="text-white mx-2" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in fa-lg"></i>
-                </a>
-                <a href="https://github.com/master-bry" class="text-white mx-2" aria-label="GitHub">
-                    <i class="fab fa-github fa-lg"></i>
-                </a>
-                <a href="https://instagram.com/trendzhub5326" class="text-white mx-2" aria-label="Instagram">
-                    <i class="fab fa-instagram fa-lg"></i>
-                </a>
-                <a href="https://wa.me/+255659864096" class="text-white mx-2" aria-label="WhatsApp">
-                    <i class="fab fa-whatsapp fa-lg"></i>
-                </a>
+            <p class="mb-3">&copy; <span id="year"></span> Brayan Ngowi. All rights reserved.</p>
+            <div class="d-flex justify-content-center gap-2 mb-3">
+                <a href="https://github.com/master-bry" class="social-link"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/brythemaster" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://x.com/master_5326" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com/trendzhub5326" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/+255659864096" class="social-link"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="mb-3">&copy; <span id="current-year">2025</span> Brayan Ngowi. All rights reserved.</p>
-            <div class="d-flex justify-content-center gap-3">
-                <a href="#privacy" class="text-white text-decoration-none">Privacy Policy</a>
-                <span class="text-white">•</span>
-                <a href="#terms" class="text-white text-decoration-none">Terms of Service</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Update copyright year automatically
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
-                navbar.style.padding = '0.5rem 0';
-            } else {
-                navbar.style.boxShadow = 'none';
-                navbar.style.padding = '1rem 0';
-            }
-
-            // Scroll progress indicator
-            const scrollProgress = document.getElementById('scroll-progress');
-            const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercentage = (window.scrollY / scrollTotal) * 100;
-            scrollProgress.style.width = scrollPercentage + '%';
-        });
-
-        // Rating stars functionality
-        const stars = document.querySelectorAll('.rating-stars i');
-        const ratingInput = document.getElementById('rating');
-
-        stars.forEach(star => {
-            star.addEventListener('click', () => {
-                const ratingValue = parseInt(star.getAttribute('data-rating'));
-                ratingInput.value = ratingValue;
-                
-                stars.forEach((s, index) => {
-                    if (index < ratingValue) {
-                        s.classList.add('fas', 'active');
-                        s.classList.remove('far');
-                    } else {
-                        s.classList.add('far');
-                        s.classList.remove('fas', 'active');
-                    }
-                });
-            });
-        });
-
-        // Form submission handling
-        const form = document.getElementById('my-form');
-        const formStatus = document.getElementById('my-form-status');
-
-        async function handleSubmit(event) {
-            event.preventDefault();
-            const data = new FormData(event.target);
-            
-            try {
-                const response = await fetch(event.target.action, {
-                    method: form.method,
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                     formStatus.style.color = "#38B2AC";
-                if (response.ok) {
-                    formStatus.textContent = "Thanks for your message! I'll get back to you soon.";
-                    formStatus.style.color = "#38B2AC";
-                    form.reset();
-                    setTimeout(() => {
-                        formStatus.textContent = "";
-                    }, 5000);
-                } else {
-                    formStatus.textContent = "Oops! There was a problem submitting your form. Please try again.";
-                    formStatus.style.color = "#E53E3E";
-                }
-            } catch (error) {
-                formStatus.textContent = "Oops! There was a problem submitting your form. Please try again.";
-                formStatus.style.color = "#E53E3E";
-            }
-        }
-
-        form.addEventListener("submit", handleSubmit);
-
-        // Intersection Observer for animated sections
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = 1;
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.animated-section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // Typing effect for headline
-        const headline = "Hi there 👋, I'm Brayan Ngowi";
-        const headlineEl = document.getElementById('typed-headline');
-        headlineEl.textContent = "";
-        let i = 0;
-        function typeHeadline() {
-            if (i < headline.length) {
-                headlineEl.innerHTML += headline.charAt(i);
-                i++;
-                setTimeout(typeHeadline, 60);
-            }
-        }
-        typeHeadline();
-    </script>
-</body>
-</html>
